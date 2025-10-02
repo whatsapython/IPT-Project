@@ -1,1 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
 
+h1 {
+    text-align: center;
+}
+
+#table {
+    display: grid;
+    grid-template-columns: repeat(18, 40px);
+    gap: 4px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.element {
+    background: #cce5ff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 14px;
+}
+
+.element:hover {
+    background: #b3d1ff;
+}
+
+.info-box {
+    max-width: 400px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px auto;
+    text-align: left;
+}
