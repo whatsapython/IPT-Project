@@ -1,12 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f8f8f8;
+    background: #111;
     margin: 0;
     padding: 20px;
+    color: #fff;
 }
 
 h1 {
     text-align: center;
+    color: #fff;
 }
 
 #table {
@@ -18,39 +20,45 @@ h1 {
 }
 
 .element {
-    border: 1px solid #333;
-    border-radius: 5px;
+    border: 2px solid #222;
     text-align: center;
     padding: 8px 0;
     cursor: pointer;
-    transition: box-shadow 0.2s;
     font-size: 14px;
-    box-shadow: 0 1px 2px #aaa2;
+    box-shadow: 0 2px 6px #000a;
+    color: #fff;
+    background: #232323cc;
+    transition: box-shadow 0.2s, border 0.2s;
 }
 
 .element:hover {
-    box-shadow: 0 4px 12px #aaa6;
+    box-shadow: 0 6px 18px #000e;
+    border: 2.5px solid #fff;
 }
 
 .info-box {
-    max-width: 400px;
-    background: #fff;
-    border: 2px solid #333;
-    border-radius: 8px;
-    padding: 16px;
+    max-width: 420px;
+    background: #181818e6;
+    border: 2px solid #444;
+    padding: 24px 18px;
     margin: 20px auto;
     text-align: left;
+    color: #fff;
+    /* No border-radius */
+    box-shadow: 0 2px 12px #0007;
 }
 
 .legend-box {
     margin: 40px auto 0 auto;
-    max-width: 700px;
-    background: #fff;
-    border-radius: 8px;
-    padding: 12px 24px 24px 24px;
-    box-shadow: 0 2px 12px #aaa2;
+    max-width: 740px;
+    background: #181818e6;
+    border: 2px solid #444;
+    padding: 14px 28px 22px 28px;
+    box-shadow: 0 2px 12px #0007;
     font-size: 14px;
+    color: #fff;
 }
+
 .legend-list {
     display: flex;
     flex-wrap: wrap;
@@ -69,18 +77,17 @@ h1 {
     display: inline-block;
     width: 22px;
     height: 22px;
-    border-radius: 6px;
-    border: 1.5px solid #444;
     margin-right: 6px;
+    border: 2px solid #222;
 }
 
-.alkali-metal { background: #b7e1fa; }
-.alkaline-earth-metal { background: #ffd6d6; }
-.transition-metal { background: #e0d6fa; }
-.post-transition-metal { background: #dffad6; }
-.metalloid { background: #ffe6b3; }
-.reactive-nonmetal { background: #b3e6ff; }
-.noble-gas { background: #ffd6fa; }
-.lanthanide { background: #e5e5ff; }
-.actinide { background: #fde2b3; }
-.unknown { background: #d9d9d9; }
+.alkali-metal { background: rgba(95, 156, 206, 0.55); }
+.alkaline-earth-metal { background: rgba(236, 127, 127, 0.55); }
+.transition-metal { background: rgba(151, 116, 207, 0.55); }
+.post-transition-metal { background: rgba(153, 209, 153, 0.55); }
+.metalloid { background: rgba(240, 222, 143, 0.55); }
+.reactive-nonmetal { background: rgba(110, 209, 222, 0.55); }
+.noble-gas { background: rgba(236, 127, 236, 0.55); }
+.lanthanide { background: rgba(182, 182, 222, 0.55); }
+.actinide { background: rgba(230, 174, 117, 0.55); }
+.unknown { background: rgba(180, 180, 180, 0.45); }
