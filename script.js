@@ -36,8 +36,8 @@ elements.forEach(el => {
 function showElementInfo(el) {
     infoBox.style.display = "block";
     infoBox.innerHTML = `
-        <div style="display: flex; gap: 32px; align-items: center;">
-            <div>
+        <div class="element-details-box">
+            <div class="element-info">
                 <h2>${el.name} (${el.symbol})</h2>
                 <p><strong>Atomic Number:</strong> ${el.number}</p>
                 <p><strong>Group:</strong> ${el.group} &nbsp; <strong>Period:</strong> ${el.period}</p>
@@ -46,14 +46,14 @@ function showElementInfo(el) {
                 <p><strong>Atomic Radius:</strong> ${el.atomicRadius ? el.atomicRadius + " pm" : "N/A"}</p>
                 <p><strong>Electronegativity:</strong> ${el.electronegativity ?? "N/A"}</p>
             </div>
-            <div>${bohrModelSVG(el.number)}</div>
+            <div class="bohr-svg-container">${bohrModelSVG(el.number)}</div>
         </div>
     `;
     animateBohrModel();
 }
 
 function bohrModelSVG(atomicNumber) {
-    // Bohr shell configuration (maximum electrons per shell)
+    // Shells max electrons
     const shells = [2, 8, 18, 32, 32, 18, 8];
     let electrons = atomicNumber;
     let shellCounts = [];
@@ -62,17 +62,22 @@ function bohrModelSVG(atomicNumber) {
         shellCounts.push(count);
         electrons -= count;
     }
-    let svg = `<svg id="bohr-model" width="110" height="110" viewBox="0 0 110 110">`;
-    svg += `<circle cx="55" cy="55" r="15" stroke="#fff" stroke-width="2" fill="#222"/>`; // Nucleus
+    // SVG size and margin
+    const size = 160;
+    const margin = 14;
+    const center = size / 2;
+    let shellGap = (center - margin - 18) / shellCounts.length;
+    let svg = `<svg id="bohr-model" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
+    svg += `<circle cx="${center}" cy="${center}" r="18" stroke="#fff" stroke-width="2" fill="#222"/>`; // Nucleus
     // Draw shells
     shellCounts.forEach((count, i) => {
-        let r = 28 + i * 12;
-        svg += `<circle cx="55" cy="55" r="${r}" stroke="#fff" stroke-width="1" fill="none"/>`;
+        let r = 28 + i * shellGap;
+        svg += `<circle cx="${center}" cy="${center}" r="${r}" stroke="#fff" stroke-width="1.5" fill="none"/>`;
         for (let j = 0; j < count; j++) {
             let angle = (j / count) * 2 * Math.PI;
-            let x = 55 + r * Math.cos(angle);
-            let y = 55 + r * Math.sin(angle);
-            svg += `<g class="electron electron-shell${i}" style="transform-origin:55px 55px;"><circle cx="${x}" cy="${y}" r="6" fill="#111" stroke="#fff" stroke-width="1"/><text x="${x-4}" y="${y+4}" font-size="13" fill="#fff">−</text></g>`;
+            let x = center + r * Math.cos(angle);
+            let y = center + r * Math.sin(angle);
+            svg += `<g class="electron electron-shell${i}" style="transform-origin:${center}px ${center}px;"><circle cx="${x}" cy="${y}" r="7" fill="#111" stroke="#fff" stroke-width="1"/><text x="${x-4}" y="${y+5}" font-size="14" fill="#fff">−</text></g>`;
         }
     });
     svg += `</svg>`;
