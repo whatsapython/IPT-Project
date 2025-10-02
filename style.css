@@ -28,7 +28,7 @@ h1 {
     box-shadow: 0 2px 6px #000a;
     color: #fff;
     background: #232323cc;
-    transition: box-shadow 0.2s, border 0.2s;
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 .element:hover {
@@ -37,12 +37,11 @@ h1 {
 }
 
 .info-box {
-    max-width: 420px;
+    max-width: 600px;
     background: #181818e6;
     border: 2px solid #444;
     padding: 24px 18px;
     margin: 20px auto;
-    text-align: left;
     color: #fff;
     box-shadow: 0 2px 12px #0007;
 }
@@ -80,6 +79,7 @@ h1 {
     border: 2px solid #222;
 }
 
+/* CATEGORY COLORS - with dark/transparent overlay for dark mode effect */
 .alkali-metal { background: rgba(95, 156, 206, 0.55); }
 .alkaline-earth-metal { background: rgba(236, 127, 127, 0.55); }
 .transition-metal { background: rgba(151, 116, 207, 0.55); }
@@ -90,3 +90,48 @@ h1 {
 .lanthanide { background: rgba(182, 182, 222, 0.55); }
 .actinide { background: rgba(230, 174, 117, 0.55); }
 .unknown { background: rgba(180, 180, 180, 0.45); }
+
+/* Info box content + Bohr model layout */
+.element-details-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+}
+
+.element-info {
+    flex: 1 1 0;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.bohr-svg-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    background: none;
+    overflow: hidden;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#bohr-model {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .element-details-box {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .bohr-svg-container {
+        margin: 0 auto;
+    }
+}
