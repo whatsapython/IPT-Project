@@ -42,9 +42,9 @@ function showElementInfo(el) {
                 <p><strong>Atomic Number:</strong> ${el.number}</p>
                 <p><strong>Group:</strong> ${el.group} &nbsp; <strong>Period:</strong> ${el.period}</p>
                 <p><strong>Category:</strong> ${el.category}</p>
-                <p>${el.info}</p>
                 <p><strong>Atomic Radius:</strong> ${el.atomicRadius ? el.atomicRadius + " pm" : "N/A"}</p>
                 <p><strong>Electronegativity:</strong> ${el.electronegativity ?? "N/A"}</p>
+                <p>${el.info}</p>
             </div>
             <div class="bohr-svg-container">${bohrModelSVG(el.number)}</div>
         </div>
