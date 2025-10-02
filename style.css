@@ -33,7 +33,7 @@ h1 {
 
 .element:hover {
     box-shadow: 0 6px 18px #000e;
-    border: 2.5px solid #fff;
+    border: 2px solid #fff;
 }
 
 .info-box {
